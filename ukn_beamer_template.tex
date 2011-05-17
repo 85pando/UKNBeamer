@@ -1,0 +1,197 @@
+% UKNBeamer - Beamer Class Slides with U Konstanz Look & Feel.
+% 2011, Alexander Holupirek <alexander.holupirek@uni-konstanz.de>
+\documentclass{beamer}
+%\documentclass[handout]{beamer}
+
+% ==============================================================================
+\usepackage{overpic}
+% Get fonts:
+% http://www.intra.uni-konstanz.de/schriften/
+% https://www.uni-konstanz.de/ZE/RZ/Antivirus/Schriften/HandelGothicEFOP.zip
+% https://www.uni-konstanz.de/ZE/RZ/Antivirus/Schriften/OfficinaSansITC.zip
+\usepackage{fontspec}
+\usepackage{xunicode} %Unicode extras!
+\usepackage{xltxtra}  %Fixes
+\newfontfamily\HandelBold{HandelGothicEFOP-Bold}
+% \setmainfont{Officina} Beamer class uses the sans serif family as the main
+% font.  As such, changing the default font translates to:
+\setsansfont{OfficinaSansITCStd}
+\setmonofont[Scale=0.9]{Andale Mono}
+\usepackage{listings}
+\lstset{
+	basicstyle=\scriptsize\ttfamily
+}
+\graphicspath{{./gfx/}}
+% ==============================================================================
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamercovered{transparent}
+  % no navigationbar
+  \beamertemplatenavigationsymbolsempty
+  % title graphic
+  \pgfdeclareimage[width=7em]{titlelogo}{gfx/ukn_spiegelnde_mensa}
+  % uni signet in header graphic
+  \pgfdeclareimage[width=9em]{logo}{gfx/ukn_signet}
+  \titlegraphic{\pgfuseimage{titlelogo}}
+% \logo{\pgfuseimage{logo}}
+  % -- header background image with uni signet as overlay
+  \setbeamertemplate{headline}
+  {
+    %\begin{overpic}[width=\paperwidth,grid,tics=5]{ukn_headerimage}
+    \begin{overpic}[width=\paperwidth]{ukn_headerimage}
+      \put(84.5,5.8){\pgfuseimage{logo}}
+    \end{overpic}
+  }
+  % -- adjust frametitle to fit into headerimage
+  \setbeamercolor{frametitle}{fg=white}
+  \setbeamerfont{frametitle}{series=\bfseries,size=\large}
+  \setbeamertemplate{frametitle}
+  {
+    % use UKNFonts for frametitle
+    \vspace{-3ex}
+    \hspace*{0.15\paperwidth}
+    {\HandelBold\insertframetitle}
+  }
+}
+
+\mode<handout>
+{
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[border shrink=3mm]
+  \renewcommand{\alert}{} % - no alert highlighting
+  \setbeamercolor{frametitle}{fg=title.fg}
+  \setbeamertemplate{frametitle}{
+	{\HandelBold\insertframetitle}
+  }
+  \setbeamertemplate{headline}
+  {
+     \vspace*{3ex}
+  }
+  \setbeamertemplate{footline}
+  {
+    \hfill\insertpagenumber
+     \vspace*{3ex}
+  }
+}
+% ==============================================================================
+\title[Computer \& Information Science]
+% use UKNFonts for frametitle
+{\textbf{\textrm \LaTeX} \HandelBold{Beamer Class Slides}}
+
+\author[A.\ Holupirek]
+{
+  Alexander Holupirek\\
+  \scriptsize\texttt{alexander.holupirek@uni-konstanz.de}
+}
+
+\institute[U KN]
+{
+	Database \& Information Systems Group\\
+	Department of Computer and Information Science\\
+	University of Konstanz
+}
+
+\date[2011] {\HandelBold Unofficial U Konstanz Look \& Feel}
+% ==============================================================================
+
+\begin{document}
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+% ------------------------------------------------------------------------------
+
+% % -----------------------------------------------------------------
+% \begin{frame}
+%   \frametitle{Table Of Contents}
+%   \tableofcontents
+%   % You might wish to add the option [pausesections]
+% \end{frame}
+% % -----------------------------------------------------------------
+
+
+% ==============================================================================
+\section{Get Fonts}
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+\begin{frame}
+  \frametitle{The Font Problem}
+  \framesubtitle{This will not appear, we do not use subtitles}
+
+  \begin{block}{The University of Konstanz uses proprietary fonts:}
+  \begin{itemize}
+    \item \textbf{HandelGothicEFOP} (for headlines and the like)
+    \item \textbf{OfficinaSansITC} (for text body)
+  \end{itemize}
+  \end{block}
+
+  \vskip0.25cm
+
+  \begin{alertblock}{Legal Note:}
+  \alert{The use of those fonts is only permitted for members of the University
+of Konstanz, i.e., those who have access to the OpenType font files.}
+  $\rightarrow$~\url{http://www.intra.uni-konstanz.de/schriften/}
+  \end{alertblock}
+\end{frame}
+% ------------------------------------------------------------------------------
+
+% ==============================================================================
+\section{Build Slides}
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+\begin{frame}[fragile]
+  \frametitle{\textrm{\XeTeX} to build slides with U KN fonts}
+
+  \begin{block}{\textrm{\XeTeX} can deal with OpenType fonts:}
+  To build these example slides you will have to switch from
+  \texttt{pdflatex(1)} to \texttt{xelatex(1)}.
+  \begin{lstlisting}
+  $ xelatex ukn_beamer_template.tex
+  This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009)
+  entering extended mode
+  (./UKN_beamer_template.tex
+  LaTeX2e <2009/09/24>
+  ...
+  Output written on ukn_beamer_template.pdf (4 pages).
+  Transcript written on ukn_beamer_template.log.
+  \end{lstlisting}
+  \end{block}
+
+\end{frame}
+% ------------------------------------------------------------------------------
+
+% ==============================================================================
+\section{Get in touch}
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+\begin{frame}
+  \frametitle{UKNBeamer in the wild}
+
+  \begin{block}{The template file for the slides is to be found on:}
+    \begin{itemize}
+      \item UKNBeamer's home:
+            \url{https://github.com/holu/UKNBeamer}
+      \item For bug reports, feature request and the like:\\
+            \url{https://github.com/holu/UKNBeamer/issues}
+    \end{itemize}
+  \end{block}
+
+  \vskip0.25cm
+
+  \textbf{Have fun.}
+  \vskip0.25cm
+  \hskip0.75cm
+  Alexander Holupirek\\
+  \hskip0.75cm
+  \texttt{\scriptsize<alexander.holupirek@uni-konstanz.de>}
+\end{frame}
+% ------------------------------------------------------------------------------
+
+\end{document}
+% ==============================================================================

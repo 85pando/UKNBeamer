@@ -1,0 +1,51 @@
+UKNBeamer ======================================================================
+
+Produce LaTeX Beamer class slides[1] with University of Konstanz look and feel,
+sort of.
+
+Files:
+------
+ 
+├── README
+├── changelog
+|── ukn_beamer_template.tex  .............  tex source to produce example slides
+├── example  ...................................................  example output
+│   ├── ukn_beamer_template.pdf
+│   └── ukn_beamer_template_handouts.pdf
+`── gfx  .....................  http://www.aktuelles.uni-konstanz.de/bildarchiv/
+    ├── ukn_headerimage.jpg  .................................  (C) Ralf Metzger
+    ├── ukn_signet.pdf  ......................................  (C) Uni Konstanz
+    └── ukn_spiegelnde_mensa.jpg   ...........................  (C) Michael Latz
+
+
+Copyright and licenses:
+-----------------------
+Files beneath gfx/ have special usage rights (see [2] for details):
+
+	Image copyright: Universität Konstanz
+	Photographer: Ralf Metzger, Michael Latz
+
+Others, and if not noted otherwise, are
+
+	Copyright (c) 2011 Alexander Holupirek <alex@holupirek.de>, ISC License
+
+	Permission to use, copy, modify, and distribute this software for any
+	purpose with or without fee is hereby granted, provided that the above
+	copyright notice and this permission notice appear in all copies.
+	
+	THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+	WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+	MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+	ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+	WHATSOEVER RESULTING FROM LOSS OF MIND, USE, DATA OR PROFITS, WHETHER
+	IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING
+	OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+Have fun.
+	Alexander Holupirek <alexander.holupirek@uni-konstanz.de>
+
+[1] https://bitbucket.org/rivanvx/beamer/overview
+[2] http://www.aktuelles.uni-konstanz.de/bildarchiv/ 
+
+================================================================================
